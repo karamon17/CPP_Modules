@@ -6,19 +6,11 @@
 /*   By: gkhaishb <gkhaishb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 13:46:33 by gkhaishb          #+#    #+#             */
-/*   Updated: 2023/08/05 16:53:08 by gkhaishb         ###   ########.fr       */
+/*   Updated: 2023/08/07 17:04:51 by gkhaishb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
-
-PhoneBook::PhoneBook(/* args */)
-{
-}
-
-PhoneBook::~PhoneBook()
-{
-}
 
 void PhoneBook::welcome(void) const
 {
@@ -32,20 +24,20 @@ void PhoneBook::welcome(void) const
 void PhoneBook::add(void)
 {
     static int  i;
-    this->_contacts[i % 8].init();
-    this->_contacts[i % 8].setIndex(i % 8);
+    _contacts[i % 8].init();
+    _contacts[i % 8].setIndex(i % 8);
     i++;
 }
 
 void    PhoneBook::print(void) const {
     std::cout << "------------- PHONBOOK CONTACTS -------------" << std::endl;
     for (size_t i = 0; i < 8; i++) {
-        this->_contacts[i].view(i);
+        _contacts[i].view(i);
     }
     std::cout << std::endl;
 }
 
-int     PhoneBook::_readInput() const {
+int     PhoneBook::read_input() const {
     int     input = -1;
     bool    valid = false;
     do
@@ -64,4 +56,9 @@ int     PhoneBook::_readInput() const {
         }
     } while (!valid);
     return (input);
+}
+
+void    PhoneBook::search(void) const {
+    int i = read_input();
+	_contacts[i].display(i);
 }

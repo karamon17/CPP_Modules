@@ -6,21 +6,13 @@
 /*   By: gkhaishb <gkhaishb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 13:46:28 by gkhaishb          #+#    #+#             */
-/*   Updated: 2023/08/05 16:19:13 by gkhaishb         ###   ########.fr       */
+/*   Updated: 2023/08/07 16:06:26 by gkhaishb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 
-Contact::Contact(/* args */)
-{
-}
-
-Contact::~Contact()
-{
-}
-
-std::string Contact::_getInput(std::string str) const 
+std::string Contact::_getInput(std::string str) const
 {
     std::string input = "";
     bool        valid = false;
@@ -39,14 +31,14 @@ std::string Contact::_getInput(std::string str) const
     return (input);
 }
 
-void    init(void)
+void    Contact::init(void)
 {
 	std::cin.ignore();
-    this->_firstName = this->_getInput("Please enter you first name: ");
-    this->_lastName = this->_getInput("Please enter your last name: ");
-    this->_nickname = this->_getInput("Please enter your nickname: ");
-    this->_phone_number = this->_getInput("Please enter your phone number: ");
-    this->_darkest_secret = this->_getInput("Please enter your darkest secret: ");
+    _first_name = _getInput("Please enter you first name: ");
+    _last_name = _getInput("Please enter your last name: ");
+    _nickname = _getInput("Please enter your nickname: ");
+    _phone_number = _getInput("Please enter your phone number: ");
+    _darkest_secret = _getInput("Please enter your darkest secret: ");
     std::cout << std::endl;
 }
 
@@ -57,28 +49,30 @@ std::string Contact::_printLen(std::string str) const
     return str;
 }
 
-void    view(int index) const
+void    Contact::view(int index) const
 {
-	if (this->_firstName.empty() || this->_lastName.empty() || this->_nickname.empty())
+	if (_first_name.empty() || _last_name.empty() || _nickname.empty())
         return ;
     std::cout << "|" << std::setw(10) << index << std::flush;
-    std::cout << "|" << std::setw(10) << this->_printLen(this->_firstName) << std::flush;
-    std::cout << "|" << std::setw(10) << this->_printLen(this->_lastName) << std::flush;
-    std::cout << "|" << std::setw(10) << this->_printLen(this->_nickname) << std::flush;
+    std::cout << "|" << std::setw(10) << _printLen(_first_name) << std::flush;
+    std::cout << "|" << std::setw(10) << _printLen(_last_name) << std::flush;
+    std::cout << "|" << std::setw(10) << _printLen(_nickname) << std::flush;
     std::cout << "|" << std::endl;
 }
-void    display(int index) const
+
+void    Contact::display(int index) const
 {
-	if (this->_firstName.empty() || this->_lastName.empty() || this->_nickname.empty())
+	if (_first_name.empty() || _last_name.empty() || _nickname.empty())
         return ;
     std::cout << std::endl;
     std::cout << "---->> CONTACT #" << index << " <<----" << std::endl;
-    std::cout << "First Name:\t" << this->_firstName << std::endl;
-    std::cout << "Last Name:\t" << this->_lastName << std::endl;
-    std::cout << "Nickname:\t" << this->_nickname << std::endl;
+    std::cout << "First Name:\t" << _first_name << std::endl;
+    std::cout << "Last Name:\t" << _last_name << std::endl;
+    std::cout << "Nickname:\t" << _nickname << std::endl;
     std::cout << std::endl;
 }
-void    setIndex(int i)
+
+void    Contact::setIndex(int i)
 {
 	Contact::_index = i;
 }
