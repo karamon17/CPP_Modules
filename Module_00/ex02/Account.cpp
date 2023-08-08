@@ -6,7 +6,7 @@
 /*   By: gkhaishb <gkhaishb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:47:49 by gkhaishb          #+#    #+#             */
-/*   Updated: 2023/08/08 11:27:28 by gkhaishb         ###   ########.fr       */
+/*   Updated: 2023/08/08 14:21:48 by gkhaishb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,19 +52,31 @@ Account::~Account( void ) {
 };
 
 void	Account::makeDeposit( int deposit ) {
-	_amount += deposit;
-	_totalAmount += deposit;
-	_totalNbDeposits++;
-	_nbDeposits++;
+	_displayTimestamp();
+    _nbDeposits++;
+    _totalNbDeposits++;
+    _totalAmount += deposit;
+    std::cout << "index:" << _accountIndex << ";" << "p_amount:" << _amount << ";" << std::flush;
+    _amount += deposit;
+    std::cout << "deposit:" << deposit << ";" << "amount:" << _amount << ";" << "nb_deposit:" << _nbDeposits << std::endl;
 }
 bool	Account::makeWithdrawal( int withdrawal ) {
-	if (_amount < withdrawal)
-		return false;
-	_amount -= withdrawal;
-	_totalAmount -= withdrawal;
-	_totalNbWithdrawals++;
-	_nbWithdrawals++;
-	return true;
+	_displayTimestamp();
+	std::cout << "index:" << this->_accountIndex << ";";
+	std::cout << "p_amount:" <<  this->_amount << ";";
+	if (this->_amount < withdrawal)
+	{
+		std::cout << "withdrawal:refused" << std::endl;
+		return (false);
+	}
+	std::cout << "withdrawal:" << withdrawal << ";";
+	this->_amount -= withdrawal;
+	Account::_totalAmount -= withdrawal;
+	std::cout << "amount:" << this->_amount << ";";
+	this->_nbWithdrawals++;
+	Account::_totalNbWithdrawals++;
+	std::cout << "nb_withdrawals:" << this->_nbWithdrawals << std::endl;
+	return (true);
 }
 int		Account::checkAmount( void ) const {
 	return _amount;

@@ -6,7 +6,7 @@
 /*   By: gkhaishb <gkhaishb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 11:35:54 by gkhaishb          #+#    #+#             */
-/*   Updated: 2023/08/05 11:49:55 by gkhaishb         ###   ########.fr       */
+/*   Updated: 2023/08/08 14:12:05 by gkhaishb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ int main(int argc, char **argv)
 		{
 			for (int j = 0; argv[i][j]; j++)
 				std::cout << (char)std::toupper(argv[i][j]);
-			if (i < argc - 1)
-				std::cout << " ";
 		}
 	}
 	std::cout << std::endl;
