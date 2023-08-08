@@ -6,7 +6,7 @@
 /*   By: gkhaishb <gkhaishb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 13:46:33 by gkhaishb          #+#    #+#             */
-/*   Updated: 2023/08/07 17:04:51 by gkhaishb         ###   ########.fr       */
+/*   Updated: 2023/08/08 12:01:21 by gkhaishb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int     PhoneBook::read_input() const {
     {
         std::cout << "Please enter the contact index: " << std::flush;
         std::cin >> input;
-        if (std::cin.good() && (input >= 0 && input <= 8)) {
+        if (std::cin.good() && (input >= 0 && input < 8)) {
             //everything went well, we'll get out of the loop and return the value
             valid = true;
         } else {

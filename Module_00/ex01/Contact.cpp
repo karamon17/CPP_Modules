@@ -6,11 +6,19 @@
 /*   By: gkhaishb <gkhaishb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 13:46:28 by gkhaishb          #+#    #+#             */
-/*   Updated: 2023/08/07 16:06:26 by gkhaishb         ###   ########.fr       */
+/*   Updated: 2023/08/08 11:58:38 by gkhaishb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
+
+Contact::Contact(/* args */)
+{
+}
+
+Contact::~Contact()
+{
+}
 
 std::string Contact::_getInput(std::string str) const
 {
@@ -69,6 +77,8 @@ void    Contact::display(int index) const
     std::cout << "First Name:\t" << _first_name << std::endl;
     std::cout << "Last Name:\t" << _last_name << std::endl;
     std::cout << "Nickname:\t" << _nickname << std::endl;
+	std::cout << "Phone Number:\t" << _phone_number << std::endl;
+	std::cout << "Darkest Secret:\t" << _darkest_secret << std::endl;
     std::cout << std::endl;
 }
 

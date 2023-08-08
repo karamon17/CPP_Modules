@@ -6,7 +6,7 @@
 /*   By: gkhaishb <gkhaishb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 13:45:57 by gkhaishb          #+#    #+#             */
-/*   Updated: 2023/08/07 16:06:19 by gkhaishb         ###   ########.fr       */
+/*   Updated: 2023/08/07 19:36:32 by gkhaishb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ private:
 	std::string _printLen(std::string str) const;
     std::string _getInput(std::string str) const;
 public:
-	Contact() {};
-	~Contact() {};
+	Contact();
+	~Contact();
 	void    init(void);
     void    view(int index) const;
     void    display(int index) const;
