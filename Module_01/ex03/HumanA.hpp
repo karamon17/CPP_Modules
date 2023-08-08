@@ -1,0 +1,30 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gkhaishb <gkhaishb@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/08 18:25:30 by gkhaishb          #+#    #+#             */
+/*   Updated: 2023/08/08 19:34:36 by gkhaishb         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef HUMANA_HPP
+#define HUMANA_HPP
+
+#include "Weapon.hpp"
+
+class HumanA
+{
+	private:
+		std::string name;
+		Weapon *weapon;
+	public:
+		HumanA(Weapon &weapon);
+		~HumanA();
+		void attack(std::string name, Weapon &weapon);
+		void setName(std::string name);
+};
+
+#endif
