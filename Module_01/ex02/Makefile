@@ -1,4 +1,4 @@
-NAME		= zombieHorde
+NAME		= brain
 	
 CC			= c++
 FLAGS		= -Wall -Wextra -Werror -std=c++98
@@ -6,7 +6,7 @@ RM			= rm -rf
 
 OBJDIR = obj
 
-FILES		= main Zombie zombieHorde
+FILES		= main
 
 SRC			= $(FILES:=.cpp)
 OBJ      = $(addprefix $(OBJDIR)/, $(addsuffix .o, $(FILES)))
