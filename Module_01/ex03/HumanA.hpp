@@ -6,7 +6,7 @@
 /*   By: gkhaishb <gkhaishb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 18:25:30 by gkhaishb          #+#    #+#             */
-/*   Updated: 2023/08/09 14:48:34 by gkhaishb         ###   ########.fr       */
+/*   Updated: 2023/08/09 16:29:14 by gkhaishb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,12 @@ class HumanA
 {
 	private:
 		std::string name;
-		Weapon *weapon;
+		Weapon &weapon;
 	public:
 		HumanA(std::string name, Weapon &weapon);
 		~HumanA();
-		void attack();
+		
+		void attack(void) const;
 };
 
 #endif
