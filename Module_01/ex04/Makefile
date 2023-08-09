@@ -6,7 +6,7 @@ RM			= rm -rf
 
 OBJDIR = obj
 
-FILES		= main 
+FILES		= main replace
 
 SRC			= $(FILES:=.cpp)
 OBJ      = $(addprefix $(OBJDIR)/, $(addsuffix .o, $(FILES)))
