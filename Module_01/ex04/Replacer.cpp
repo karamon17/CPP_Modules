@@ -14,7 +14,7 @@ Replacer::Replacer(std::string filename, std::string s1, std::string s2)
 		exit(1);
 	}
     while (std::getline(inputFile, line)) {
-       res += line;
+       res += line + "\n";
     }
 	if (res.empty()) {
 		std::cerr << "File is empty." << std::endl;
@@ -50,4 +50,3 @@ void Replacer::create_new_file(void) {
 		exit(1);
     }
 }
-	
