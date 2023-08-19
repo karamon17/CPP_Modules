@@ -1,6 +1,6 @@
-#include "replace.hpp"
+#include "Replacer.hpp"
 
-replaser::replaser(std::string filename, std::string s1, std::string s2)
+Replacer::Replacer(std::string filename, std::string s1, std::string s2)
 {
 	this->filename = filename;
 	this->s1 = s1;
@@ -8,6 +8,11 @@ replaser::replaser(std::string filename, std::string s1, std::string s2)
 	std::ifstream inputFile(filename);
     std::string line;
 	std::string res;
+	if (!inputFile.is_open())
+	{
+		std::cerr << "Unable to open the file." << std::endl;
+		exit(1);
+	}
     while (std::getline(inputFile, line)) {
        res += line;
     }
@@ -20,12 +25,12 @@ replaser::replaser(std::string filename, std::string s1, std::string s2)
 
 };
 
-replaser::~replaser()
+Replacer::~Replacer()
 {
 
 };
 
-void replaser::replace(void) {
+void Replacer::replace(void) {
 	size_t pos;
 	pos = file_content.find(s1);
 	while (pos != std::string::npos) {
@@ -34,7 +39,7 @@ void replaser::replace(void) {
 	}
 }
 
-void replaser::create_new_file(void) {
+void Replacer::create_new_file(void) {
 	std::string filename = this->filename + ".replace";
 	std::ofstream outputFile(filename);
 	if (outputFile.is_open()) {
@@ -45,14 +50,4 @@ void replaser::create_new_file(void) {
 		exit(1);
     }
 }
-
-int validation(std::string filename)
-{
-	std::ifstream inputFile(filename);
-	if (!inputFile.is_open()) {
-		std::cerr << "Unable to open the file." << std::endl;
-		exit(1);
-    }
-	inputFile.close();
-	return 0;
-}
+	

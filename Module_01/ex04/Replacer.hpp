@@ -1,10 +1,10 @@
-#ifndef REPLACE_HPP
-#define REPLACE_HPP
+#ifndef REPLACER_HPP
+#define REPLACER_HPP
 
 #include <iostream>
 #include <fstream>
 
-class replaser
+class Replacer
 {
 	private:
 		std::string filename;
@@ -12,12 +12,11 @@ class replaser
 		std::string s2;
 		std::string file_content;
 	public:
-		replaser(std::string filename, std::string s1, std::string s2);
-		~replaser();
+		Replacer(std::string filename, std::string s1, std::string s2);
+		~Replacer();
 
 		void replace(void);
 		void create_new_file(void);
 };
-	int validation(std::string filename);
 
 #endif

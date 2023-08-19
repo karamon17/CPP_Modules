@@ -6,7 +6,7 @@
 /*   By: gkhaishb <gkhaishb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 15:14:36 by gkhaishb          #+#    #+#             */
-/*   Updated: 2023/08/09 18:00:59 by gkhaishb         ###   ########.fr       */
+/*   Updated: 2023/08/19 13:18:52 by gkhaishb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Zombie
 	private:
 		std::string name;
 	public:
-		Zombie(/* args */);
+		Zombie();
 		~Zombie();
 		void announce( void );
 		void setName( std::string name );
