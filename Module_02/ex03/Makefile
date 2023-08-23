@@ -6,7 +6,7 @@ RM			= rm -rf
 
 OBJDIR = obj
 
-FILES		= main Fixed
+FILES		= main Fixed Point bsp
 
 SRC			= $(FILES:=.cpp)
 OBJ      = $(addprefix $(OBJDIR)/, $(addsuffix .o, $(FILES)))
