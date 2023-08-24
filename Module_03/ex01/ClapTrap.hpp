@@ -10,11 +10,12 @@ class ClapTrap
 		unsigned int hitPoints;
 		unsigned int energyPoints;
 		unsigned int attackDamage;
+		ClapTrap();
 
 	public:
-		ClapTrap();
-		~ClapTrap();
 		ClapTrap(std::string name);
+		~ClapTrap();
+
 		ClapTrap(const ClapTrap& tocopy);
 		ClapTrap& operator=(const ClapTrap& tocooy);
 		

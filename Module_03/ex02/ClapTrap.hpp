@@ -5,7 +5,7 @@
 
 class ClapTrap
 {
-	private:
+	protected:
 		std::string name;
 		unsigned int hitPoints;
 		unsigned int energyPoints;
@@ -15,7 +15,7 @@ class ClapTrap
 	public:
 		ClapTrap(std::string name);
 		~ClapTrap();
-
+		
 		ClapTrap(const ClapTrap& tocopy);
 		ClapTrap& operator=(const ClapTrap& tocooy);
 		
