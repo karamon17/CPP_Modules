@@ -11,7 +11,7 @@ class ScavTrap : public ClapTrap
 	public:
 		ScavTrap(const std::string &name);
 		ScavTrap(const ScavTrap& tocopy);
-		ScavTrap& operator=(const ScavTrap& tocooy);
+		ScavTrap& operator=(const ScavTrap& tocopy);
 		~ScavTrap();
 
 		void attack(const std::string &target);
