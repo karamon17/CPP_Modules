@@ -12,6 +12,12 @@ int main()
 	for (int i = 5; i < 10; i++)
 		animals[i] = new Cat();
 	for (int i = 0; i < 10; i++)
+		animals[i]->makeSound();
+	for (int i = 0; i < 10; i++)
+	{
 		delete animals[i];
+		animals[i] = 0;
+	}
+	// system("leaks animal");
 	return 0;
 }
