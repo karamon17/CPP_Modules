@@ -12,7 +12,7 @@ int main()
 	src->learnMateria(new Cure());
 
 	ICharacter* me = new Character("me");
-	
+
 	AMateria* tmp;
 	tmp = src->createMateria("ice");
 	me->equip(tmp);
@@ -23,12 +23,10 @@ int main()
 
 	me->use(0, *bob);
 	me->use(1, *bob);
-	me->use(0, *me);
-	me->use(1, *me);
 
 	delete bob;
 	delete me;
 	delete src;
-	
+
 	return 0;
 }

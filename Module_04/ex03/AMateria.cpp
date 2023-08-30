@@ -25,7 +25,6 @@ std::string const & AMateria::getType() const {
 }
 
 void AMateria::use(ICharacter& target) {
-	std::cout << "use materia" << std::endl;
 	(void)target;
 }
 

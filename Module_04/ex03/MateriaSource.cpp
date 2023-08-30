@@ -4,7 +4,6 @@ MateriaSource::MateriaSource() {
 	count = 0;
 	for (int i = 0; i < 4; i++)
 		materia[i] = NULL;
-	std::cout << count << std::endl;
 }
 
 MateriaSource::MateriaSource(const MateriaSource &copy) {
