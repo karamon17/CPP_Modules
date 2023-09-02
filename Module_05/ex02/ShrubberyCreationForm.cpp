@@ -34,20 +34,31 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 	else if (getSigned() == "false")
 		throw FormNotSignedException();
 	std::ofstream outputFile(getTarget() + "_shrubbery");
-	if (outputFile.is_open()) {
-		outputFile << "       ccee88oo\n";
-		outputFile << "  C8O8O8Q8PoOb o8oo\n";
-		outputFile << " dOB69QO8PdUOpugoO9bD\n";
-		outputFile << "CgggbU8OU qOp qOdoUOdcb\n";
-		outputFile << "O o88oUodcb  dUdUO8PdU\n";
-		outputFile << "   6OuU  /p u gcoUodpP\n";
-		outputFile << "     \\//  /douUP\n";
-		outputFile << "       \\\\////\n";
-		outputFile << "        |||/\\\n";
-		outputFile << "        |||\\/\\\n";
-		outputFile << "        |||||\n";
-		outputFile << "  .....//|||||\\....\n";
-	}
+	outputFile << "                      ___" << std::endl;
+    outputFile << "                _,-'\"\"   \"\"\"\"`--." << std::endl;
+    outputFile << "             ,-'          __,,-- \\" << std::endl;
+    outputFile << "           ,\'    __,--\"\"\"\"dF      )" << std::endl;
+    outputFile << "          /   .-\"Hb_,--\"\"dF      /" << std::endl;
+    outputFile << "        ,\'       _Hb ___dF\"-._,-'" << std::endl;
+    outputFile << "      ,'      _,-\"\"\"\"   \"\"--..__" << std::endl;
+    outputFile << "     (     ,-'                  `." << std::endl;
+    outputFile << "      `._,'     _   _             ;" << std::endl;
+    outputFile << "       ,'     ,' `-'Hb-.___..._,-'" << std::endl;
+    outputFile << "       \\    ,'\"Hb.-\'HH`-.dHF\"" << std::endl;
+    outputFile << "        `--\'   \"Hb  HH  dF\"" << std::endl;
+    outputFile << "                \"Hb HH dF" << std::endl;
+    outputFile << "                 \"HbHHdF" << std::endl;
+    outputFile << "                  |HHHF" << std::endl;
+    outputFile << "                  |HHH|" << std::endl;
+    outputFile << "                  |HHH|" << std::endl;
+    outputFile << "                  |HHH|" << std::endl;
+    outputFile << "                  |HHH|" << std::endl;
+    outputFile << "                  dHHHb" << std::endl;
+    outputFile << "                .dFd|bHb.               o" << std::endl;
+    outputFile << "      o       .dHFdH|HbTHb.          o /" << std::endl;
+    outputFile << "\\  Y  |  \\__,dHHFdHH|HHhoHHb.__Krogg  Y" << std::endl;
+    outputFile << "##########################################" << std::endl;
+    outputFile.close();
 }
 
 
