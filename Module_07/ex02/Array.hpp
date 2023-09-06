@@ -9,6 +9,13 @@ class Array
 private:
 	T *_array;
 	unsigned int _size;
+
+	class OutOfBoundsException: public std::exception
+	{
+		public:
+			virtual const char *what() const throw() { return ("Out of bounds"); }
+	};
+
 public:
 	Array(void) : _array(NULL), _size(0) {}
 	Array(unsigned int n) : _array(new T[n]), _size(n) {}
@@ -29,7 +36,7 @@ public:
 	T &operator[](unsigned int i)
 	{
 		if (i >= _size)
-			throw std::exception();
+			throw OutOfBoundsException();
 		return (_array[i]);
 	}
 	unsigned int size(void) const { return (_size); }
