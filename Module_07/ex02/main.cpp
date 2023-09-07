@@ -35,7 +35,13 @@ int main(int, char**)
 	}
 
 
+	{
+		const Array<int> tmp(intArr);
 
+		tmp[3] = 239;
+
+		std::cout << std::endl << "tmp[3]: " << tmp[3] << std::endl;
+	}
 
     // Array<int> numbers(MAX_VAL);
     // int* mirror = new int[MAX_VAL];

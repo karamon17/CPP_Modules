@@ -39,6 +39,13 @@ public:
 			throw OutOfBoundsException();
 		return (_array[i]);
 	}
+
+	const T &operator[](unsigned int i) const
+	{
+		if (i >= _size)
+			throw OutOfBoundsException();
+		return (_array[i]);
+	}
 	unsigned int size(void) const { return (_size); }
 };
 

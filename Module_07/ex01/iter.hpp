@@ -28,4 +28,11 @@ void iter(T *array, int length, void (*f)(T &))
 		f(array[i]);
 }
 
+template <typename T, typename P>
+void iter(T *array, int length, void (*f)(P &))
+{
+	for (int i = 0; i < length; i++)
+		f(array[i]);
+}
+
 #endif
