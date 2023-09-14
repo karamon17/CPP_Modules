@@ -33,16 +33,16 @@ void ScalarConverter::convert(std::string const &input)
 	switch (detect_type(input))
 	{
 		case CHAR:
-			printChar(input);
+			printChar();
 			break;
 		case INT:
 			printInt(input);
 			break;
 		case FLOAT:
-			printFloat(input);
+			printFloat();
 			break;	
 		case DOUBLE:
-			printDouble(input);
+			printDouble();
 			break;	
 
 		default:
@@ -93,7 +93,7 @@ int ScalarConverter::detect_type(std::string const &input)
 		_char = input[0];
 		return (CHAR);
 	}
-	int i = 0;
+	size_t i = 0;
 	if (input[0] == '-')
 		i++;
 	for (; i < input.length(); i++)
@@ -101,7 +101,7 @@ int ScalarConverter::detect_type(std::string const &input)
 		if ((!isdigit(input[i]) && input[i] != 'f' && input[i] != '.') || (input[i] == 'f' && input[i + 1]))
 			return (0);
 	}
-	for (int i = 0; i < input.length(); i++)
+	for (size_t i = 0; i < input.length(); i++)
 	{
 		if (input[i] == '.')
 		{
@@ -114,11 +114,11 @@ int ScalarConverter::detect_type(std::string const &input)
 			}
 		}
 	}
-	for (int i = 0; i < input.length(); i++)
+	for (size_t i = 0; i < input.length(); i++)
 	{
 		if (input[i] == '.')
 		{
-			int j = 0;
+			size_t j = 0;
 			while (i < input.length())
 			{
 				i++;
@@ -153,7 +153,7 @@ int ScalarConverter::detect_type(std::string const &input)
 	return (0);
 }
 
-void ScalarConverter::printChar(std::string const &input)
+void ScalarConverter::printChar()
 {
 	std::cout << "char: '" << _char << "'" << std::endl;
 	_int = static_cast<int>(_char);
@@ -191,7 +191,7 @@ void ScalarConverter::printInt(std::string const &input)
 	}
 }
 
-void ScalarConverter::printFloat(std::string const &input)
+void ScalarConverter::printFloat()
 {
 	_int = static_cast<int>(_float);
 	if (_int >= -128 && _int <= 32)
@@ -218,7 +218,7 @@ void ScalarConverter::printFloat(std::string const &input)
 	}
 }
 
-void ScalarConverter::printDouble(std::string const &input)
+void ScalarConverter::printDouble()
 {
 	if (_double > INT_MAX || _double < INT_MIN)
 	{
