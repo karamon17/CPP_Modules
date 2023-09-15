@@ -26,6 +26,10 @@ private:
 	static void insert_min(std::vector<std::pair<int, int> > &pairs, std::vector<int> &new_v);
 	static void devide_to_groups(std::vector<std::pair<int, int> > &pairs, std::vector<std::vector<int> > &groups);
 	static void amount_of_groups(std::vector<std::pair<int, int> > &pairs, std::vector<std::vector<int> > &groups);
+	static void insert_in_sorted(std::vector<std::vector<int> > &groups, std::vector<int> &sorted);
+	static void binary_insert(std::vector<int> &sorted, int num, size_t var);
+	static void print_groups(std::vector<std::vector<int> > &groups);
+	static void print_pairs(std::vector<std::pair<int, int> > &pairs);
 
 public:
 	static bool sort(char **argv);
