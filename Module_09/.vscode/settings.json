@@ -61,6 +61,7 @@
 		"fstream": "cpp",
 		"stack": "cpp",
 		"filesystem": "cpp",
-		"__memory": "cpp"
+		"__memory": "cpp",
+		"set": "cpp"
 	}
 }
