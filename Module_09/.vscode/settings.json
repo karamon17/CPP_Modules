@@ -62,6 +62,7 @@
 		"stack": "cpp",
 		"filesystem": "cpp",
 		"__memory": "cpp",
-		"set": "cpp"
+		"set": "cpp",
+		"list": "cpp"
 	}
 }

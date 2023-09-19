@@ -129,7 +129,10 @@ void PmergeMe::devide_to_groups(std::vector<std::pair<int, int> > &pairs, std::v
 	while (count < groups.size())
 	{
 		for (size_t i = 0; i < var && it < pairs.end(); i++, it++)
-			groups[count].insert(groups[count].begin(), it->second);
+		{
+			if (it->second != 0)
+				groups[count].insert(groups[count].begin(), it->second);
+		}
 		last = var;
 		count++;
 		var = pow(2, count + 1) - last;
@@ -142,8 +145,6 @@ void PmergeMe::binary_insert(std::vector<int> &sorted, int num, int group_index)
 	size_t i = pow(2, group_index) - 1;
     if (i < sorted.size())
 	    copy.erase(copy.begin() + i, copy.end());
-	// std::cout << "i: " << i << std::endl;
-	// std::cout << "sorted size: " << sorted.size() << std::endl;
 	int left = 0;
 	int right = copy.size();
 	size_t mid;
@@ -160,16 +161,6 @@ void PmergeMe::binary_insert(std::vector<int> &sorted, int num, int group_index)
 			sorted.insert(sorted.begin() + left, num);
 			return ;
 		}
-		// else if (sorted[mid] < num && mid + 1 == copy.size())
-		// {
-		// 	sorted.insert(sorted.begin() + copy.size(), num);
-		// 	return ;
-		// }
-		// else if (mid == 0 && num < sorted[mid])
-		// {
-		// 	sorted.insert(sorted.begin(), num);
-		// 	return ;
-		// }
 		else if (sorted[mid] < num)
 			left = mid + 1;
 		else
@@ -180,29 +171,20 @@ void PmergeMe::binary_insert(std::vector<int> &sorted, int num, int group_index)
 void PmergeMe::insert_in_sorted(std::vector<std::vector<int> > &groups, std::vector<int> &sorted)
 {
 	std::vector<std::vector<int> >::iterator it = groups.begin();
-	size_t var = 2;
-	int last;
-	int index = 4;
-	int start_index = 4;
 	int group_index = 2;
 	while (it != groups.end())
 	{
 		std::vector<int>::iterator it2 = it->begin();
-		last = var;
 		while (it2 != it->end() && *it2 != 0)
 		{
 			binary_insert(sorted, *it2, group_index);
-			//std::cout << "index: " << index << std::endl;
-			index--;
 			it2++;
 		}
-		var = pow(2, group_index) - last;
 		group_index++;
-		index = start_index + var;
-		start_index = index;
-		//std::cout << "var: " << var << std::endl;
 		it++;
 	}
+	if (sorted[0] == 0)
+		sorted.erase(sorted.begin());
 }
 
 void PmergeMe::print_groups(std::vector<std::vector<int> > &groups)
@@ -287,19 +269,34 @@ void PmergeMe::insert(std::vector<std::pair<int, int> > &pairs, std::vector<int>
 	pairs.erase(pairs.begin());
 }
 
-bool PmergeMe::areVectorsEqual(const std::vector<int>& vector1, const std::vector<int>& vector2) {
+bool PmergeMe::areVectorsEqual(const std::set<int>& vector1, const std::set<int>& vector2) {
     if (vector1.size() != vector2.size()) {
+		std::cout << "\n" << vector1.size() << " " << vector2.size() << "\n" << std::endl;
         return false;
     }
-    for (size_t i = 0; i < vector1.size(); ++i) {
-        if (vector1[i] != vector2[i]) {
+	std::set<int>::iterator it1 = vector1.begin();
+	std::set<int>::iterator it2 = vector2.begin();
+	for (; it1 != vector1.end(); it1++, it2++)
+		if (*it1 != *it2) {
+			std::cout << "\n" << "Элемент " << *it1 << "\n" << std::endl;
             return false;
-        }
-    }
+		}
     return true;
 }
 
-bool PmergeMe::sort(char **argv, int argc)
+void PmergeMe::checker(std::vector<int>& v, std::vector<int>& sorted)
+{
+	std::sort(v.begin(), v.end());
+	std::set<int> set(v.begin(), v.end());
+	std::set<int> set_sorted(sorted.begin(), sorted.end());
+	if (areVectorsEqual(set, set_sorted)) {
+        std::cout << "Векторы равны." << std::endl;
+    } else {
+        std::cout << "Векторы не равны." << std::endl;
+    }
+}
+
+void PmergeMe::sort(char **argv, int argc)
 {
 	clock_t start = clock();
 	std::vector<int> v;
@@ -311,26 +308,18 @@ bool PmergeMe::sort(char **argv, int argc)
 	fill_pairs(v, pairs);
 	sort_pairs(pairs);
 	merge_sort(pairs, 0, pairs.size() - 1);
-	//print_pairs(pairs);
 	insert(pairs, sorted);
 	std::vector<std::vector<int> > groups;
 	devide_to_groups(pairs, groups);
-	//print_groups(groups);
 	insert_in_sorted(groups, sorted);
 	std::cout << "After:  ";
 	for (size_t i = 0; i < sorted.size(); i++)
 		std::cout << sorted[i] << " ";
 	std::cout << std::endl;
 
-	// checker
-	std::sort(v.begin(), v.end());
-	if (areVectorsEqual(v, sorted)) {
-        std::cout << "Векторы равны." << std::endl;
-    } else {
-        std::cout << "Векторы не равны." << std::endl;
-    }
+	//checker(v, sorted);
+	
 	clock_t end = clock();
 	double time = static_cast<double>(end - start) * 1000 / CLOCKS_PER_SEC;
 	std::cout << "Time to process a range of " << argc - 1 << " elements with std::vector : " << time << " us" << std::endl;
-	return 0;
 }

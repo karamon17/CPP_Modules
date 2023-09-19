@@ -6,7 +6,7 @@ RM			= rm -rf
 
 OBJDIR = obj
 
-FILES		= main PmergeMe
+FILES		= main PmergeMe PmergeMeList
 
 SRC			= $(FILES:=.cpp)
 OBJ      = $(addprefix $(OBJDIR)/, $(addsuffix .o, $(FILES)))

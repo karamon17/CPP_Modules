@@ -31,10 +31,11 @@ private:
 	static void merge_sort(std::vector<std::pair<int, int> > &pairs, int left, int right);
 	static void merge(std::vector<std::pair<int, int> > &pairs, int left, int mid, int right);
 	static void insert(std::vector<std::pair<int, int> > &pairs, std::vector<int> &new_v);
-	static bool areVectorsEqual(const std::vector<int>& vector1, const std::vector<int>& vector2);
+	static bool areVectorsEqual(const std::set<int>& vector1, const std::set<int>& vector2);
+	static void checker(std::vector<int>& v, std::vector<int>& sorted);
 
 public:
-	static bool sort(char **argv, int argc);
+	static void sort(char **argv, int argc);
 };
 
 #endif
