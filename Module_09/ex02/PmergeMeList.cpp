@@ -361,5 +361,5 @@ void PmergeMeList::sort(char **argv, int argc)
 	
 	clock_t end = clock();
 	double time = static_cast<double>(end - start) * 1000 / CLOCKS_PER_SEC;
-	std::cout << "Time to process a range of " << argc - 1 << " elements with std::vector : " << time << " us" << std::endl;
+	std::cout << "Time to process a range of " << argc - 1 << " elements with std::list : " << time << " us" << std::endl;
 }
